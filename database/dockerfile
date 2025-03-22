@@ -1,0 +1,11 @@
+FROM mysql:latest
+
+COPY init.sql /docker-entrypoint-initdb.d/
+
+ENV MYSQL_ROOT_PASSWORD=mysql
+
+ENV MYSQL_DATABASE=time-tracker-db
+
+VOLUME time-tracker:/var/lib/mysql
+
+EXPOSE 3306
